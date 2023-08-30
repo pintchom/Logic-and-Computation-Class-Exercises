@@ -11,6 +11,7 @@ def nth_prime(n):
                 break # if this ever works, definitely not a prime number
         if prime:
             primes.append(curNum)
+    print(primes)
     return primes[-1]
         
 
