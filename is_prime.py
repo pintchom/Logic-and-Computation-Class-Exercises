@@ -4,7 +4,6 @@ def is_prime(n):
         return False
     curNum = 2
 
-
     while curNum ** 2 <= n: 
     # Realized that if a number is prime, it's factors will lie below the first factor squared to be greater than n 
 
