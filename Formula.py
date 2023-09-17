@@ -43,7 +43,7 @@ class Or(Formula):
     def variables(self):
         return self.first.variables().union(self.second.variables())
     def evaluate(self,values):
-        # ADD CODE HERE
+        return self.first.evaluate(values) or self.second.evaluate(values)
 
 class Implies(Formula):
     def __init__(self,first,second):
@@ -54,7 +54,7 @@ class Implies(Formula):
     def variables(self):
         return self.first.variables().union(self.second.variables())
     def evaluate(self,values):
-        # ADD CODE HERE
+        return (not self.first.evaluate(values)) or self.second.evaluate(values)
 
 class Not(Formula):
     def __init__(self,sub):
@@ -64,7 +64,7 @@ class Not(Formula):
     def variables(self):
         return self.sub.variables()
     def evaluate(self,values):
-        # ADD CODE HERE
+        return not self.sub.variables()
 
 class Iff(Formula):
     def __init__(self,first,second):
