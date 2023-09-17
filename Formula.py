@@ -75,7 +75,8 @@ class Iff(Formula):
     def variables(self):
         return self.first.variables().union(self.second.variables())
     def evaluate(self,values):
-        # ADD CODE HERE
+        return (self.first.evaluate(values) and self.second.evaluate(values)) or ((not self.first.evaluate(values)) and (not self.second.evaluate(values)))
+        
 
 # listAllPossibleValues takes a list of variable names, it returns a list of pairs,
 #   giving all possible combinations of True/False values for the given variables
@@ -108,8 +109,8 @@ def truthTable(formula):
 
 # DEMO – this should work once you add the missing code above
 
-myformula=Not(And(Implies(Variable('p'),Variable('q')),
-                  Iff(Variable('p'),Variable('r'))))
+myformula=And(Implies(Variable('p'),Variable('q')),
+                  Implies(Variable('p'),Variable('r')))
 
 print( truthTable(myformula) )
 
