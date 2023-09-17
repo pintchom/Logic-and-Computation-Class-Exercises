@@ -64,7 +64,7 @@ class Not(Formula):
     def variables(self):
         return self.sub.variables()
     def evaluate(self,values):
-        return not self.sub.variables()
+        return (not self.sub.evaluate(values))
 
 class Iff(Formula):
     def __init__(self,first,second):
@@ -109,8 +109,7 @@ def truthTable(formula):
 
 # DEMO – this should work once you add the missing code above
 
-myformula=And(Implies(Variable('p'),Variable('q')),
-                  Implies(Variable('p'),Variable('r')))
+myformula=Or(Variable('p'),Not(Variable('p')))
 
 print( truthTable(myformula) )
 
