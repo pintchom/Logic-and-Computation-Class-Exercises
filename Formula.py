@@ -116,11 +116,24 @@ print( truthTable(myformula) )
 
 # Uncomment the following lines and provide the code to compute them
 
-# def isTautology(formula):
-     # ADD CODE HERE
-    
-# def isSatisfiable(formula):
-     # ADD CODE HERE
+def isTautology(formula):
+    values = truthValues(formula)
+    if False in values:
+        return False
+    return True
+
+def isSatisfiable(formula):
+    values = truthValues(formula)
+    if True in values:
+        return True
+    return False
         
-# def isContradiction(formula):
-     # ADD CODE HERE
+def isContradiction(formula):
+    values = truthValues(formula)
+    if True in values:
+        return False
+    return True
+
+print(isTautology(myformula))
+print(isSatisfiable(myformula))
+print(isContradiction(myformula))
